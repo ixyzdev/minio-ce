@@ -39,5 +39,4 @@ COPY --from=build /go/bin/curl  /usr/bin/curl
 RUN chown root:root /usr/bin/minio /usr/bin/mc /usr/bin/curl && chmod 0755 /usr/bin/minio /usr/bin/mc /usr/bin/curl
 VOLUME ["/data"]
 ENTRYPOINT ["/usr/bin/minio"]
-# comando final lo define Compose
-HEALTHCHECK --interval=30s --timeout=5s --retries=5 CMD /usr/bin/curl -f http://127.0.0.1:9000/minio/health/ready || exit 1
+
